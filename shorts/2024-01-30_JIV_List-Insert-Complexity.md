@@ -13,9 +13,9 @@ void MoveItemUp<T>(List<T> list, int index)
 }
 ```
 
-Under the hood, `List` is implemented as [growable array](https://en.wikipedia.org/wiki/Dynamic_array). `Insert` method is implemented by copying all items after target index to make space for inserted item. Similarly, `RemoveAt` copy all items after index. So, `MoveItemUp` have actually linear *O(n)* complexity.
+Under the hood, `List` is implemented as [growable array](https://en.wikipedia.org/wiki/Dynamic_array). `Insert` method is [implemented](https://source.dot.net/#System.Private.CoreLib/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs,770) by copying all items after target index to make space for inserted item. Similarly, `RemoveAt` copy all items after index. So, `MoveItemUp` have actually linear *O(n)* complexity.
 
-constant time *O(1)* algorithm:
+Constant time *O(1)* algorithm:
 
 ```csharp
 void MoveItemUp<T>(List<T> list, int index)
@@ -23,8 +23,8 @@ void MoveItemUp<T>(List<T> list, int index)
     if (index > 0 && index < list.Count)
     {
         T item = list[index];
-        list[index] = list[index-1];
-        list[index-1] = item;
+        list[index] = list[index - 1];
+        list[index - 1] = item;
     }
 }
 ```
