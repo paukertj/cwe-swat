@@ -31,4 +31,4 @@ void MoveItemUp<T>(List<T> list, int index)
 
 ---
 
-> Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE **SWAT Workgroup**. You can reach me and other group members at swat@ciklum.com.
+> Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE [**SWAT Workgroup**](https://wiki.ciklum.net/display/CGNA/SWAT). You can reach me and other group members at swat@ciklum.com.
