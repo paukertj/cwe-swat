@@ -42,3 +42,5 @@ var barDescriptor = services.FirstOrDefault(x => x.ImplementationType == typeof(
 // ...
 ```
 However, while this solution works in straightforward implementations like our example, it may not be effective in third-party libraries where the implementation can be more complex.
+
+> Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE **SWAT Workgroup**. You can reach me and other group members at swat@ciklum.com.
