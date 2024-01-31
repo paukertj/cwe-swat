@@ -20,7 +20,7 @@ Iterating over service descriptors is a common practice in many libraries that p
 
 Currently, the easiest workaround for this issue is to register keyed services after performing service analysis. Referring to the example above, this approach ensures that the retrieval of the `BarService` descriptor occurs without issues:
 
-```
+```csharp
 // ...
 
 services.AddSingleton<BarService>();
