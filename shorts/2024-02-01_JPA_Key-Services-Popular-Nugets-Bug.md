@@ -32,7 +32,7 @@ services.AddKeyedSingleton<FooService>("fooKey");
 ```
 
 For our example also following solution will work:
-```
+```csharp
 // ...
 
 services.AddSingleton<BarService>();
