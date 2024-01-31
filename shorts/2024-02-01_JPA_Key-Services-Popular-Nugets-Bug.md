@@ -1,7 +1,7 @@
 Did you know that [`ServiceDescriptor.ImplementationType`](https://github.com/dotnet/runtime/blob/main/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/ServiceDescriptor.cs#L158) can throw a `System.InvalidOperationException` in scenarios involving [Keyed services](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-8.0#keyed-services)? This behavior can lead to unexpected issues during Dependency Injection composition.
 
 Consider the following example:
-```
+```csharp
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
