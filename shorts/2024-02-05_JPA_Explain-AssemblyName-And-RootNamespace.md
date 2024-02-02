@@ -40,3 +40,5 @@ Until now, we've made all changes at the project level. This means that if we de
 These settings apply a namespace and assembly prefix for all projects.
 
 So, there is no need for explicit project names if the only motivation is the assembly name, namespace, or both.
+
+> Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE [**SWAT Workgroup**](https://wiki.ciklum.net/display/CGNA/SWAT+Workgroup). You can reach me and other group members at swat@ciklum.com.
