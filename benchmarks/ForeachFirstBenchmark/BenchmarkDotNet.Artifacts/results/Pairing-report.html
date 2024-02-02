@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Pairing-20240202-103551</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.3930/22H2/2022Update)
+12th Gen Intel Core i7-12800H, 1 CPU, 20 logical and 14 physical cores
+.NET SDK 8.0.101
+  [Host]     : .NET 8.0.1 (8.0.123.58001), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.1 (8.0.123.58001), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>N</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Median</th><th>Ratio</th><th>RatioSD</th>
+</tr>
+</thead><tbody><tr><td>Baseline</td><td>10</td><td>275.33 ns</td><td>5.515 ns</td><td>5.159 ns</td><td>275.79 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>10</td><td>38.92 ns</td><td>0.532 ns</td><td>0.444 ns</td><td>38.90 ns</td><td>0.14</td><td>0.00</td>
+</tr><tr><td>Dict</td><td>10</td><td>114.45 ns</td><td>2.300 ns</td><td>4.147 ns</td><td>114.90 ns</td><td>0.42</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>10</td><td>33.93 ns</td><td>0.436 ns</td><td>0.408 ns</td><td>33.86 ns</td><td>0.12</td><td>0.00</td>
+</tr><tr><td>Join</td><td>10</td><td>504.01 ns</td><td>8.937 ns</td><td>20.891 ns</td><td>502.28 ns</td><td>1.84</td><td>0.07</td>
+</tr><tr><td>Baseline</td><td>20</td><td>889.53 ns</td><td>17.751 ns</td><td>38.588 ns</td><td>882.69 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>20</td><td>114.99 ns</td><td>2.161 ns</td><td>2.021 ns</td><td>114.84 ns</td><td>0.13</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>20</td><td>212.29 ns</td><td>3.980 ns</td><td>6.196 ns</td><td>210.98 ns</td><td>0.24</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>20</td><td>68.20 ns</td><td>1.382 ns</td><td>1.937 ns</td><td>67.52 ns</td><td>0.08</td><td>0.00</td>
+</tr><tr><td>Join</td><td>20</td><td>990.83 ns</td><td>19.632 ns</td><td>31.139 ns</td><td>984.83 ns</td><td>1.13</td><td>0.06</td>
+</tr><tr><td>Baseline</td><td>25</td><td>1,316.37 ns</td><td>29.823 ns</td><td>85.087 ns</td><td>1,296.95 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>25</td><td>166.77 ns</td><td>3.235 ns</td><td>3.725 ns</td><td>166.90 ns</td><td>0.12</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>25</td><td>276.06 ns</td><td>7.194 ns</td><td>21.212 ns</td><td>269.61 ns</td><td>0.21</td><td>0.02</td>
+</tr><tr><td>DictCached</td><td>25</td><td>87.09 ns</td><td>1.774 ns</td><td>3.060 ns</td><td>86.76 ns</td><td>0.07</td><td>0.01</td>
+</tr><tr><td>Join</td><td>25</td><td>1,180.06 ns</td><td>23.455 ns</td><td>48.440 ns</td><td>1,166.45 ns</td><td>0.90</td><td>0.07</td>
+</tr><tr><td>Baseline</td><td>30</td><td>1,672.44 ns</td><td>33.389 ns</td><td>39.747 ns</td><td>1,667.19 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>30</td><td>244.54 ns</td><td>4.790 ns</td><td>11.749 ns</td><td>243.31 ns</td><td>0.14</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>30</td><td>316.44 ns</td><td>6.000 ns</td><td>10.819 ns</td><td>313.87 ns</td><td>0.19</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>30</td><td>107.50 ns</td><td>1.699 ns</td><td>1.419 ns</td><td>107.87 ns</td><td>0.06</td><td>0.00</td>
+</tr><tr><td>Join</td><td>30</td><td>1,340.21 ns</td><td>24.966 ns</td><td>27.749 ns</td><td>1,336.00 ns</td><td>0.80</td><td>0.03</td>
+</tr><tr><td>Baseline</td><td>50</td><td>4,503.26 ns</td><td>86.046 ns</td><td>114.869 ns</td><td>4,472.47 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>50</td><td>681.25 ns</td><td>13.258 ns</td><td>15.268 ns</td><td>679.58 ns</td><td>0.15</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>50</td><td>523.42 ns</td><td>10.485 ns</td><td>21.887 ns</td><td>517.35 ns</td><td>0.12</td><td>0.00</td>
+</tr><tr><td>DictCached</td><td>50</td><td>180.60 ns</td><td>3.644 ns</td><td>7.107 ns</td><td>179.37 ns</td><td>0.04</td><td>0.00</td>
+</tr><tr><td>Join</td><td>50</td><td>2,365.13 ns</td><td>78.881 ns</td><td>230.101 ns</td><td>2,278.96 ns</td><td>0.51</td><td>0.03</td>
+</tr><tr><td>Baseline</td><td>100</td><td>16,042.51 ns</td><td>339.967 ns</td><td>953.303 ns</td><td>15,899.31 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>100</td><td>3,051.51 ns</td><td>60.868 ns</td><td>149.309 ns</td><td>3,010.23 ns</td><td>0.19</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>100</td><td>1,053.25 ns</td><td>22.578 ns</td><td>66.216 ns</td><td>1,035.50 ns</td><td>0.07</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>100</td><td>365.79 ns</td><td>7.311 ns</td><td>17.934 ns</td><td>361.90 ns</td><td>0.02</td><td>0.00</td>
+</tr><tr><td>Join</td><td>100</td><td>4,289.77 ns</td><td>85.254 ns</td><td>215.447 ns</td><td>4,255.91 ns</td><td>0.27</td><td>0.02</td>
+</tr></tbody></table>
+</body>
+</html>
