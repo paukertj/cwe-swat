@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Pairing-20240202-103551</title>
+<title>Pairing-20240202-142610</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -24,36 +24,66 @@ BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.3930/22H2/2022Update)
 <table>
 <thead><tr><th>Method</th><th>N</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>Median</th><th>Ratio</th><th>RatioSD</th>
 </tr>
-</thead><tbody><tr><td>Baseline</td><td>10</td><td>275.33 ns</td><td>5.515 ns</td><td>5.159 ns</td><td>275.79 ns</td><td>1.00</td><td>0.00</td>
-</tr><tr><td>Manual</td><td>10</td><td>38.92 ns</td><td>0.532 ns</td><td>0.444 ns</td><td>38.90 ns</td><td>0.14</td><td>0.00</td>
-</tr><tr><td>Dict</td><td>10</td><td>114.45 ns</td><td>2.300 ns</td><td>4.147 ns</td><td>114.90 ns</td><td>0.42</td><td>0.01</td>
-</tr><tr><td>DictCached</td><td>10</td><td>33.93 ns</td><td>0.436 ns</td><td>0.408 ns</td><td>33.86 ns</td><td>0.12</td><td>0.00</td>
-</tr><tr><td>Join</td><td>10</td><td>504.01 ns</td><td>8.937 ns</td><td>20.891 ns</td><td>502.28 ns</td><td>1.84</td><td>0.07</td>
-</tr><tr><td>Baseline</td><td>20</td><td>889.53 ns</td><td>17.751 ns</td><td>38.588 ns</td><td>882.69 ns</td><td>1.00</td><td>0.00</td>
-</tr><tr><td>Manual</td><td>20</td><td>114.99 ns</td><td>2.161 ns</td><td>2.021 ns</td><td>114.84 ns</td><td>0.13</td><td>0.01</td>
-</tr><tr><td>Dict</td><td>20</td><td>212.29 ns</td><td>3.980 ns</td><td>6.196 ns</td><td>210.98 ns</td><td>0.24</td><td>0.01</td>
-</tr><tr><td>DictCached</td><td>20</td><td>68.20 ns</td><td>1.382 ns</td><td>1.937 ns</td><td>67.52 ns</td><td>0.08</td><td>0.00</td>
-</tr><tr><td>Join</td><td>20</td><td>990.83 ns</td><td>19.632 ns</td><td>31.139 ns</td><td>984.83 ns</td><td>1.13</td><td>0.06</td>
-</tr><tr><td>Baseline</td><td>25</td><td>1,316.37 ns</td><td>29.823 ns</td><td>85.087 ns</td><td>1,296.95 ns</td><td>1.00</td><td>0.00</td>
-</tr><tr><td>Manual</td><td>25</td><td>166.77 ns</td><td>3.235 ns</td><td>3.725 ns</td><td>166.90 ns</td><td>0.12</td><td>0.01</td>
-</tr><tr><td>Dict</td><td>25</td><td>276.06 ns</td><td>7.194 ns</td><td>21.212 ns</td><td>269.61 ns</td><td>0.21</td><td>0.02</td>
-</tr><tr><td>DictCached</td><td>25</td><td>87.09 ns</td><td>1.774 ns</td><td>3.060 ns</td><td>86.76 ns</td><td>0.07</td><td>0.01</td>
-</tr><tr><td>Join</td><td>25</td><td>1,180.06 ns</td><td>23.455 ns</td><td>48.440 ns</td><td>1,166.45 ns</td><td>0.90</td><td>0.07</td>
-</tr><tr><td>Baseline</td><td>30</td><td>1,672.44 ns</td><td>33.389 ns</td><td>39.747 ns</td><td>1,667.19 ns</td><td>1.00</td><td>0.00</td>
-</tr><tr><td>Manual</td><td>30</td><td>244.54 ns</td><td>4.790 ns</td><td>11.749 ns</td><td>243.31 ns</td><td>0.14</td><td>0.01</td>
-</tr><tr><td>Dict</td><td>30</td><td>316.44 ns</td><td>6.000 ns</td><td>10.819 ns</td><td>313.87 ns</td><td>0.19</td><td>0.01</td>
-</tr><tr><td>DictCached</td><td>30</td><td>107.50 ns</td><td>1.699 ns</td><td>1.419 ns</td><td>107.87 ns</td><td>0.06</td><td>0.00</td>
-</tr><tr><td>Join</td><td>30</td><td>1,340.21 ns</td><td>24.966 ns</td><td>27.749 ns</td><td>1,336.00 ns</td><td>0.80</td><td>0.03</td>
-</tr><tr><td>Baseline</td><td>50</td><td>4,503.26 ns</td><td>86.046 ns</td><td>114.869 ns</td><td>4,472.47 ns</td><td>1.00</td><td>0.00</td>
-</tr><tr><td>Manual</td><td>50</td><td>681.25 ns</td><td>13.258 ns</td><td>15.268 ns</td><td>679.58 ns</td><td>0.15</td><td>0.01</td>
-</tr><tr><td>Dict</td><td>50</td><td>523.42 ns</td><td>10.485 ns</td><td>21.887 ns</td><td>517.35 ns</td><td>0.12</td><td>0.00</td>
-</tr><tr><td>DictCached</td><td>50</td><td>180.60 ns</td><td>3.644 ns</td><td>7.107 ns</td><td>179.37 ns</td><td>0.04</td><td>0.00</td>
-</tr><tr><td>Join</td><td>50</td><td>2,365.13 ns</td><td>78.881 ns</td><td>230.101 ns</td><td>2,278.96 ns</td><td>0.51</td><td>0.03</td>
-</tr><tr><td>Baseline</td><td>100</td><td>16,042.51 ns</td><td>339.967 ns</td><td>953.303 ns</td><td>15,899.31 ns</td><td>1.00</td><td>0.00</td>
-</tr><tr><td>Manual</td><td>100</td><td>3,051.51 ns</td><td>60.868 ns</td><td>149.309 ns</td><td>3,010.23 ns</td><td>0.19</td><td>0.01</td>
-</tr><tr><td>Dict</td><td>100</td><td>1,053.25 ns</td><td>22.578 ns</td><td>66.216 ns</td><td>1,035.50 ns</td><td>0.07</td><td>0.01</td>
-</tr><tr><td>DictCached</td><td>100</td><td>365.79 ns</td><td>7.311 ns</td><td>17.934 ns</td><td>361.90 ns</td><td>0.02</td><td>0.00</td>
-</tr><tr><td>Join</td><td>100</td><td>4,289.77 ns</td><td>85.254 ns</td><td>215.447 ns</td><td>4,255.91 ns</td><td>0.27</td><td>0.02</td>
+</thead><tbody><tr><td>Baseline</td><td>10</td><td>313.38 ns</td><td>11.207 ns</td><td>31.054 ns</td><td>307.64 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>10</td><td>41.38 ns</td><td>0.847 ns</td><td>1.612 ns</td><td>41.08 ns</td><td>0.14</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>10</td><td>117.25 ns</td><td>2.978 ns</td><td>8.686 ns</td><td>116.10 ns</td><td>0.38</td><td>0.05</td>
+</tr><tr><td>DictCached</td><td>10</td><td>34.11 ns</td><td>0.714 ns</td><td>1.443 ns</td><td>33.72 ns</td><td>0.11</td><td>0.01</td>
+</tr><tr><td>Join</td><td>10</td><td>496.36 ns</td><td>9.865 ns</td><td>24.013 ns</td><td>491.53 ns</td><td>1.60</td><td>0.15</td>
+</tr><tr><td>Baseline</td><td>15</td><td>534.54 ns</td><td>16.937 ns</td><td>48.048 ns</td><td>517.58 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>15</td><td>69.29 ns</td><td>1.310 ns</td><td>1.960 ns</td><td>68.76 ns</td><td>0.13</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>15</td><td>151.65 ns</td><td>2.944 ns</td><td>3.272 ns</td><td>151.18 ns</td><td>0.29</td><td>0.03</td>
+</tr><tr><td>DictCached</td><td>15</td><td>50.07 ns</td><td>0.931 ns</td><td>1.422 ns</td><td>49.76 ns</td><td>0.09</td><td>0.01</td>
+</tr><tr><td>Join</td><td>15</td><td>720.16 ns</td><td>16.026 ns</td><td>46.238 ns</td><td>715.24 ns</td><td>1.36</td><td>0.15</td>
+</tr><tr><td>Baseline</td><td>20</td><td>878.06 ns</td><td>17.429 ns</td><td>45.609 ns</td><td>879.43 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>20</td><td>115.65 ns</td><td>2.284 ns</td><td>2.719 ns</td><td>116.10 ns</td><td>0.13</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>20</td><td>217.85 ns</td><td>6.187 ns</td><td>17.851 ns</td><td>213.61 ns</td><td>0.24</td><td>0.02</td>
+</tr><tr><td>DictCached</td><td>20</td><td>69.85 ns</td><td>1.671 ns</td><td>4.631 ns</td><td>68.43 ns</td><td>0.08</td><td>0.01</td>
+</tr><tr><td>Join</td><td>20</td><td>945.93 ns</td><td>18.598 ns</td><td>17.396 ns</td><td>946.94 ns</td><td>1.06</td><td>0.04</td>
+</tr><tr><td>Baseline</td><td>25</td><td>1,200.19 ns</td><td>23.853 ns</td><td>47.637 ns</td><td>1,191.15 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>25</td><td>174.14 ns</td><td>4.466 ns</td><td>13.028 ns</td><td>170.51 ns</td><td>0.14</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>25</td><td>267.52 ns</td><td>7.581 ns</td><td>22.113 ns</td><td>260.05 ns</td><td>0.23</td><td>0.02</td>
+</tr><tr><td>DictCached</td><td>25</td><td>90.48 ns</td><td>1.967 ns</td><td>5.706 ns</td><td>89.60 ns</td><td>0.08</td><td>0.01</td>
+</tr><tr><td>Join</td><td>25</td><td>1,166.47 ns</td><td>23.899 ns</td><td>69.714 ns</td><td>1,151.71 ns</td><td>0.98</td><td>0.07</td>
+</tr><tr><td>Baseline</td><td>30</td><td>1,820.57 ns</td><td>34.150 ns</td><td>37.958 ns</td><td>1,809.70 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>30</td><td>246.65 ns</td><td>5.148 ns</td><td>14.934 ns</td><td>245.11 ns</td><td>0.14</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>30</td><td>322.53 ns</td><td>7.021 ns</td><td>20.370 ns</td><td>316.76 ns</td><td>0.18</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>30</td><td>112.41 ns</td><td>2.271 ns</td><td>5.944 ns</td><td>111.16 ns</td><td>0.06</td><td>0.00</td>
+</tr><tr><td>Join</td><td>30</td><td>1,318.27 ns</td><td>26.262 ns</td><td>58.739 ns</td><td>1,304.69 ns</td><td>0.71</td><td>0.03</td>
+</tr><tr><td>Baseline</td><td>40</td><td>2,672.68 ns</td><td>53.422 ns</td><td>140.735 ns</td><td>2,639.58 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>40</td><td>405.66 ns</td><td>8.124 ns</td><td>19.927 ns</td><td>401.96 ns</td><td>0.15</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>40</td><td>422.74 ns</td><td>8.517 ns</td><td>24.437 ns</td><td>419.71 ns</td><td>0.16</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>40</td><td>145.98 ns</td><td>2.934 ns</td><td>7.416 ns</td><td>145.20 ns</td><td>0.05</td><td>0.00</td>
+</tr><tr><td>Join</td><td>40</td><td>1,973.70 ns</td><td>68.861 ns</td><td>194.224 ns</td><td>1,951.20 ns</td><td>0.74</td><td>0.09</td>
+</tr><tr><td>Baseline</td><td>50</td><td>4,510.45 ns</td><td>89.789 ns</td><td>106.888 ns</td><td>4,499.02 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>50</td><td>708.75 ns</td><td>18.421 ns</td><td>51.351 ns</td><td>694.08 ns</td><td>0.16</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>50</td><td>520.14 ns</td><td>10.343 ns</td><td>27.787 ns</td><td>515.29 ns</td><td>0.12</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>50</td><td>184.37 ns</td><td>3.669 ns</td><td>6.230 ns</td><td>184.66 ns</td><td>0.04</td><td>0.00</td>
+</tr><tr><td>Join</td><td>50</td><td>2,299.17 ns</td><td>56.156 ns</td><td>163.810 ns</td><td>2,243.34 ns</td><td>0.51</td><td>0.04</td>
+</tr><tr><td>Baseline</td><td>60</td><td>6,040.62 ns</td><td>115.354 ns</td><td>161.711 ns</td><td>6,026.03 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>60</td><td>1,005.86 ns</td><td>20.147 ns</td><td>51.280 ns</td><td>1,001.46 ns</td><td>0.17</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>60</td><td>579.99 ns</td><td>10.450 ns</td><td>15.317 ns</td><td>578.04 ns</td><td>0.10</td><td>0.00</td>
+</tr><tr><td>DictCached</td><td>60</td><td>211.71 ns</td><td>3.936 ns</td><td>4.978 ns</td><td>211.04 ns</td><td>0.04</td><td>0.00</td>
+</tr><tr><td>Join</td><td>60</td><td>2,573.00 ns</td><td>58.983 ns</td><td>169.234 ns</td><td>2,531.23 ns</td><td>0.42</td><td>0.03</td>
+</tr><tr><td>Baseline</td><td>70</td><td>8,779.16 ns</td><td>215.544 ns</td><td>604.408 ns</td><td>8,661.16 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>70</td><td>1,318.31 ns</td><td>21.644 ns</td><td>20.245 ns</td><td>1,322.98 ns</td><td>0.16</td><td>0.01</td>
+</tr><tr><td>Dict</td><td>70</td><td>716.93 ns</td><td>19.424 ns</td><td>56.967 ns</td><td>695.16 ns</td><td>0.08</td><td>0.01</td>
+</tr><tr><td>DictCached</td><td>70</td><td>248.97 ns</td><td>4.982 ns</td><td>11.446 ns</td><td>246.48 ns</td><td>0.03</td><td>0.00</td>
+</tr><tr><td>Join</td><td>70</td><td>3,202.58 ns</td><td>76.318 ns</td><td>222.623 ns</td><td>3,128.56 ns</td><td>0.37</td><td>0.03</td>
+</tr><tr><td>Baseline</td><td>80</td><td>10,818.64 ns</td><td>461.973 ns</td><td>1,233.101 ns</td><td>10,392.68 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>80</td><td>1,944.50 ns</td><td>54.860 ns</td><td>152.928 ns</td><td>1,920.25 ns</td><td>0.18</td><td>0.02</td>
+</tr><tr><td>Dict</td><td>80</td><td>965.76 ns</td><td>66.670 ns</td><td>195.532 ns</td><td>891.97 ns</td><td>0.09</td><td>0.02</td>
+</tr><tr><td>DictCached</td><td>80</td><td>295.92 ns</td><td>6.743 ns</td><td>19.669 ns</td><td>290.32 ns</td><td>0.03</td><td>0.00</td>
+</tr><tr><td>Join</td><td>80</td><td>3,680.14 ns</td><td>96.579 ns</td><td>277.103 ns</td><td>3,665.12 ns</td><td>0.34</td><td>0.04</td>
+</tr><tr><td>Baseline</td><td>90</td><td>12,362.58 ns</td><td>243.013 ns</td><td>490.898 ns</td><td>12,301.18 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>90</td><td>2,497.25 ns</td><td>73.771 ns</td><td>212.846 ns</td><td>2,428.16 ns</td><td>0.20</td><td>0.02</td>
+</tr><tr><td>Dict</td><td>90</td><td>857.26 ns</td><td>17.111 ns</td><td>25.081 ns</td><td>858.43 ns</td><td>0.07</td><td>0.00</td>
+</tr><tr><td>DictCached</td><td>90</td><td>311.67 ns</td><td>6.177 ns</td><td>8.031 ns</td><td>312.11 ns</td><td>0.03</td><td>0.00</td>
+</tr><tr><td>Join</td><td>90</td><td>4,327.54 ns</td><td>292.002 ns</td><td>818.806 ns</td><td>3,966.88 ns</td><td>0.38</td><td>0.07</td>
+</tr><tr><td>Baseline</td><td>100</td><td>15,668.32 ns</td><td>325.592 ns</td><td>902.214 ns</td><td>15,543.84 ns</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>Manual</td><td>100</td><td>4,029.31 ns</td><td>337.085 ns</td><td>993.902 ns</td><td>3,787.63 ns</td><td>0.25</td><td>0.07</td>
+</tr><tr><td>Dict</td><td>100</td><td>1,583.59 ns</td><td>164.711 ns</td><td>485.654 ns</td><td>1,774.66 ns</td><td>0.11</td><td>0.03</td>
+</tr><tr><td>DictCached</td><td>100</td><td>517.16 ns</td><td>60.392 ns</td><td>178.067 ns</td><td>397.29 ns</td><td>0.03</td><td>0.01</td>
+</tr><tr><td>Join</td><td>100</td><td>4,815.58 ns</td><td>149.317 ns</td><td>401.130 ns</td><td>4,684.89 ns</td><td>0.31</td><td>0.03</td>
 </tr></tbody></table>
 </body>
 </html>

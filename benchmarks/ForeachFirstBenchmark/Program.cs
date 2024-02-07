@@ -19,9 +19,9 @@ public class Author
 
 public class Pairing
 {
-    //[Params(100)]
+    //[Params(100,1000)]
     //[Params(10,50,100,1000)]
-    [Params(10,20,25,30,50,100)]
+    [Params(10,15,20,25,30,40,50,60,70,80,90,100)]
     public int N { get; set; }
 
     public Book[] books { get; set; }
