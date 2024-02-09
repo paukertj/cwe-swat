@@ -1,3 +1,8 @@
+## Results
+[latest results](BenchmarkDotNet.Artifacts/results/Pairing-report-github.md)
+
+## Run locally
+
 Run benchmarks:
 
 ```

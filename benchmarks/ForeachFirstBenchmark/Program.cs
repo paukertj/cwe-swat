@@ -36,7 +36,7 @@ public class Pairing
     }
 
     [Benchmark(Baseline = true)]
-    public void Baseline()
+    public void First()
     {
         foreach (var book in books)
         {
