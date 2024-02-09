@@ -26,6 +26,6 @@ To illustrate the performance difference, I did simple benchmark:
 
 `.Join()` method is [using `Lookup` internally](https://source.dot.net/#System.Linq/System/Linq/Join.cs,48) and thus have linear complexity. There is some overhead, but after collection size of around 25 elements, difference in time grows quickly.
 
-You can look at benchmark code with few more variants here: TODO
+You can look at benchmark code with few more variants [here](https://github.com/paukertj/cwe-swat/tree/main/benchmarks/ForeachFirstBenchmark).
 
 > Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE [**SWAT Workgroup**](https://wiki.ciklum.net/display/CGNA/SWAT+Workgroup). You can reach me and other group members at swat@ciklum.com.
