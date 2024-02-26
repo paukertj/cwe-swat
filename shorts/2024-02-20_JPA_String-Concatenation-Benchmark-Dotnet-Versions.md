@@ -40,7 +40,9 @@ public class Benchmarks
 }
 ```
 
-## Benchmarks
+# Benchmarks
+
+## String concatination
 
 The first benchmark is stupid string concatenation method:
 ```
@@ -72,6 +74,7 @@ Performance in `μs`:
 
 ![StringConcatenation](2024-02-20_JPA_String-Concatenation-Benchmark-Dotnet-Versions-Chart-1.png)
 
+## `StringBuilder` with default capacity
 
 The second benchmark uses [`StringBuilder`](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder) that uses [overload with default capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor):
 ```
@@ -104,6 +107,7 @@ Performance in `μs`:
 
 ![StringBuilder](2024-02-20_JPA_String-Concatenation-Benchmark-Dotnet-Versions-Chart-2.png)
 
+## `StringBuilder` with result capacity
 
 The thirht benchmark uses [`StringBuilder`](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder) that is [initialized to the result capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor(system-int32)):
 ```
@@ -142,6 +146,8 @@ Performance in `μs`:
 
 ![StringBuilderWithFixSize](2024-02-20_JPA_String-Concatenation-Benchmark-Dotnet-Versions-Chart-3.png)
 
+## `StringBuilder` with constant predefined capacity
+
 The last benchmark is similar to previous one but uses [overload with constant predefined capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor(system-int32)).
 ```
 [Benchmark]
@@ -172,10 +178,13 @@ Performance in `μs`:
 
 ![StringBuilderWithFixIncrement](2024-02-20_JPA_String-Concatenation-Benchmark-Dotnet-Versions-Chart-4.png)
 
-## Conclusion
+# Conclusion
 My goal is not to delve into the differences between each method, as the results are as anticipated. I would like to highlight the differences between frameworks in relation to the test results:
 - Generally speaking, .NET performance is improving.
 - .NET 8 delivers the best results in the tests I conducted (the variance with .NET 7 in the string.Concat benchmark falls within error tolerance).
 - The full .NET Framework's StringBuilder exhibits significantly poorer performance.
 - There is no significant difference between .NET Framework 4.7.1 and 4.8.1.
 - String concatenation in .NET 6 and .NET 7 exhibits significantly poorer performance.
+
+# Remarks
+- If you wonder, why string concatination is that slow, that is because [`string` immutability]([concatenation](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#immutability-of-strings))
