@@ -5,7 +5,7 @@ Together with colleagues from the SWAT group, we discussed how the performance o
 Windows 11 (10.0.22621.3155/22H2/2022Update/SunValley2)
 QEMU Virtual CPU version 2.5+, 2 CPU, 4 logical and 4 physical cores
 ```
-And intalled a few .NET SDKs there:
+And installed a few .NET SDKs there:
 ```
   .NET 5.0             : .NET 5.0.17 (5.0.1722.21314), X64 RyuJIT SSE4.2
   .NET 6.0             : .NET 6.0.27 (6.0.2724.6912), X64 RyuJIT SSE4.2
@@ -18,7 +18,7 @@ And intalled a few .NET SDKs there:
 The results are not surprising, but for me, it is still an interesting comparison. For each test I made following setup (not measured):
 
 ```
-public class Bechmarks
+public class Benchmarks
 {
     private const string Fragment = "Abc";
 
@@ -42,7 +42,7 @@ public class Bechmarks
 
 ## Benchmarks
 
-The first benchmark is stupid string concatination method:
+The first benchmark is stupid string concatenation method:
 ```
 [Benchmark]
 public string StringConcat()
@@ -143,6 +143,20 @@ Performance in `μs`:
 ![StringBuilderWithFixSize](2024-02-20_JPA_String-Concatenation-Benchmark-Dotnet-Versions-Chart-3.png)
 
 The last benchmark is similar to previous one but uses [overload with constant predefined capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor(system-int32)).
+```
+[Benchmark]
+public string StringBuilderWithFixSize()
+{
+    var result = new StringBuilder(512);
+
+    foreach (string fragment in _fragments)
+    {
+        result.Append(fragment);
+    }
+
+    return result.ToString();
+}
+```
 Performance in `μs`:
 | Batch   | .NET 5.0 | .NET 6.0 | .NET 7.0 | .NET 8.0 | .NET Core 3.1 | .NET Framework 4.7.1 | .NET Framework 4.8.1 |
 |---------|----------|----------|----------|----------|---------------|----------------------|----------------------|
