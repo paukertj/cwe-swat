@@ -1,6 +1,6 @@
 # String concatenation performance evolution
 
-Together with colleagues from the SWAT group, we discussed how the performance of string concatenation has changed in each .NET version. I had an idea that it would be interesting to compare multiple .NET versions that are part of .NET Standard 2.0 in a simple string concatenation task, so I created the following virtual machine:
+Together with colleagues from the #SWAT group, we discussed how the performance of string concatenation has changed in each .NET version. I had an idea that it would be interesting to compare multiple .NET versions that are part of [.NET Standard 2.0](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-0) in a simple string concatenation tasks, so I created the following virtual machine:
 ```
 Windows 11 (10.0.22621.3155/22H2/2022Update/SunValley2)
 QEMU Virtual CPU version 2.5+, 2 CPU, 4 logical and 4 physical cores
@@ -42,7 +42,7 @@ public class Benchmarks
 
 # Benchmarks
 
-## String concatination
+## String concatenation
 
 The first benchmark is stupid string concatenation method:
 ```
@@ -148,7 +148,7 @@ Performance in `μs`:
 
 ## `StringBuilder` with constant predefined capacity
 
-The last benchmark is similar to previous one but uses [overload with constant predefined capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor(system-int32)).
+The last benchmark is similar to previous one but uses [overload with constant predefined capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor(system-int32)), so this is the same benchmark like the previous but only with 512 characters allocation.
 ```
 [Benchmark]
 public string StringBuilderWithFixSize()
@@ -181,10 +181,12 @@ Performance in `μs`:
 # Conclusion
 My goal is not to delve into the differences between each method, as the results are as anticipated. I would like to highlight the differences between frameworks in relation to the test results:
 - Generally speaking, .NET performance is improving.
-- .NET 8 delivers the best results in the tests I conducted (the variance with .NET 7 in the string.Concat benchmark falls within error tolerance).
-- The full .NET Framework's StringBuilder exhibits significantly poorer performance.
+- .NET 8 delivers the best results in the tests I conducted (the variance with .NET 7 in the string concatenation benchmark falls within error tolerance).
+- The full .NET Framework's `StringBuilder` exhibits significantly poorer performance.
 - There is no significant difference between .NET Framework 4.7.1 and 4.8.1.
 - String concatenation in .NET 6 and .NET 7 exhibits significantly poorer performance.
 
 # Remarks
-- If you wonder, why string concatination is that slow, that is because [`string` immutability]([concatenation](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#immutability-of-strings))
+- If you wonder, why string concatenation is that slow, that is because [`string` immutability]([concatenation](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#immutability-of-strings))
+
+> Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE [**SWAT Workgroup**](https://wiki.ciklum.net/display/CGNA/SWAT+Workgroup). You can reach me and other group members at swat@ciklum.com.
