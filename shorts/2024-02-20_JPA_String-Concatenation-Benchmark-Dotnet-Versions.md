@@ -109,7 +109,7 @@ Performance in `μs`:
 
 ## `StringBuilder` with result capacity
 
-The thirht benchmark uses [`StringBuilder`](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder) that is [initialized to the result capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor(system-int32)):
+The third benchmark uses [`StringBuilder`](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder) that is [initialized to the result capacity](https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.-ctor?view=net-8.0#system-text-stringbuilder-ctor(system-int32)):
 ```
 [Benchmark]
 public string StringBuilderWithFixSize()
