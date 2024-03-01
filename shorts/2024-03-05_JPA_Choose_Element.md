@@ -83,6 +83,39 @@ So, let's rewrite this using the [`Choose` element](https://learn.microsoft.com/
 
 </Project>
 ```
-This implementation will work well if there is any `EnvConfiguration`, the `appsettings.json` file will be copied accordingly. If there is no value, then the default `appsettings.json` file will be used. A problem could only occur in the case where there is no file for the provided `EnvConfiguration`. Let me fix it! There is a predefined condition type for this in [MSBuild](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-reference). It is called [`Exists()`](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-conditions) and verifies if the provided path exists or not. So, let's refactor my original condition `"$(EnvConfiguration) != ''"` to one that actually verifies if there is any file for the provided `EnvConfiguration` - `Exists('appsettings.$(EnvConfiguration).json')`. Then, when an incorrect `EnvConfiguration` is entered, the default `appsettings.json` will be used instead.
+This implementation will work well if there is any `EnvConfiguration`, the `appsettings.json` file will be copied accordingly. If there is no value, then the default `appsettings.json` file will be used. A problem could only occur in the case where there is no file for the provided `EnvConfiguration`. Let me fix it! There is a predefined condition type for this in [MSBuild](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-reference). It is called [`Exists()`](https://learn.microsoft.com/en-us/visualstudio/msbuild/msbuild-conditions) and verifies if the provided path exists or not. So, let's refactor my original condition `"$(EnvConfiguration) != ''"` to one that actually verifies if there is any file for the provided `EnvConfiguration` - `Exists('appsettings.$(EnvConfiguration).json')`. Then, when an incorrect `EnvConfiguration` is entered, the default `appsettings.json` will be used instead. So here is the final output:
+```
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<EnvConfiguration />
+	</PropertyGroup>
+
+	<Choose>
+		<When Condition="Exists('appsettings.$(EnvConfiguration).json')">
+			<ItemGroup>
+				<None Update="appsettings.$(EnvConfiguration).json">
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
+			</ItemGroup>
+		</When>
+		<Otherwise>
+			<ItemGroup>
+				<None Update="appsettings.json">
+					<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+				</None>
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+
+</Project>
+```
+
+If I call `dotnet publish -c Release -p:EnvConfiguration=production`, then `appsettings.production.json` will be copied to the build output. This will work similarly for `development`, where `appsettings.development.json` will be copied to the build output. In the case of a missing parameter, such as `dotnet publish -c Release`, or a value that refers to a file that does not exist, `appsettings.json` will be copied to the build output.
 
 > Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE [**SWAT Workgroup**](https://wiki.ciklum.net/display/CGNA/SWAT+Workgroup). You can reach me and other group members at swat@ciklum.com. #SWAT
