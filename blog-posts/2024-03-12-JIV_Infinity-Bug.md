@@ -1,6 +1,6 @@
 # Infinity ♾ forecast bug
 
-On one client project, we encountered an interesting bug after migrating to .NET8 from .NET6. The project is a weather forecast service that provides weather forecast data from various weather forecast providers. We expose an API that can return forecast data for a specific point and date.
+At one of our customer project at [Ciklum western Europe](https://www.ciklum.com/we), we encountered an interesting bug after migrating to .NET8 from .NET6. The project is a weather forecast service that provides weather forecast data from various weather forecast providers. We expose an API that can return forecast data for a specific point and date.
 
 Shortly after upgrading to .NET8, the client reported that part of the requested forecast data is missing. After some investigation, we noticed that some forecast values are infinity. 🤔 
 
@@ -27,5 +27,9 @@ But why did this bug appear only after the upgrade to .NET8? After some debuggin
 It turns out that in .NET7 there was a [change in behavior](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/7.0/datetime-add-precision) in the `DateTime.AddDays` method. Until .NET6, the method was rounding the result to the nearest millisecond, but in .NET7 and later, no rounding is performed.
 
 After learning this, the fix was simple. We just needed to round the `DateTime` value to the nearest millisecond.
+
+### Note about DateTimeOffset
+
+In discussion with colleagues, there was a question if the same problem could happen with `DateTimeOffset` type. Although `DateTimeOffset` methods are not mentioned in the [breaking change page](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/7.0/datetime-add-precision), they share the same implementation as `DateTime` methods. So, the same problem will occur with `DateTimeOffset`.
 
 > Found a similar bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE [**SWAT Workgroup**](https://wiki.ciklum.net/display/CGNA/SWAT+Workgroup). You can reach me and other group members at swat@ciklum.com.
