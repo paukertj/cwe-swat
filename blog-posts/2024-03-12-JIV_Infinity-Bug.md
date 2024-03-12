@@ -8,13 +8,13 @@ Shortly after upgrading to .NET8, the client reported that part of the requested
 
 We checked the forecast data from the provider for that specific point and didn't find anything problematic. After some more digging, we noticed some strange dates in our weather data that look like this: `2024-02-05T16:44:59.9999997Z`. That rings a bell; such a rounding error could lead to a [divide by zero](https://en.wikipedia.org/wiki/Floating-point_arithmetic#Dealing_with_exceptional_cases), resulting in infinity when working with floating-point numbers.
 
-Our first suspicion was the interpolating function. To provide a forecast for the exact point and date, we do [linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) of forecasted values from the 2 nearest points in time and space. The interpolation function looks like this:
+Our first suspicion was the interpolating function. To provide a forecast for the exact point and date, we do [linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) of forecast values from the 2 nearest points in time and space. The interpolation function looks like this:
 
 ```fsharp
 ((xp - x1) * (v2 - v1) / (x2 - x1)) + v1
 ```
 
-Where in our case `xp` is the point in time we want to forecast, `x1` and `x2` are the nearest points in time, and `v1` and `v2` are the forecasted values for `x1` and `x2`.
+Where in our case `xp` is the point in time we want to forecast, `x1` and `x2` are the nearest points in time, and `v1` and `v2` are the forecast values for `x1` and `x2`.
 
 Because of the rounding error, the service considered `2024-02-05T16:44:59.9999997Z` and `2024-02-05T16:45:00.0000000Z` as different time points, and when we were looking for the 2 nearest times, in some cases we got these 2 points. Using them in the interpolation function, `x2 - x1` evaluates to zero, resulting in infinity.
 
