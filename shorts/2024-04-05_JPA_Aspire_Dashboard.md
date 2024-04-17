@@ -1,6 +1,6 @@
 If you ever played with [Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview) you probably encounter [Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard). Did you know that you can run it [standalone in docker](https://learn.microsoft.com/en-us/samples/dotnet/aspire-samples/aspire-standalone-dashboard/)? 
 
-A that is not the only thing! You can still run [Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard) standalone even without docker. [TL? DR! See sample!](https://github.com/paukertj/cwe-swat/tree/main/shorts/2024-04-05_JPA_Aspire_Dashboard_Samples) Only thing what you have to do is to create empty Aspire project in your favorite IDE or using CLI:
+And that is not the only thing! You can still run [Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard) standalone even without docker. [TL? DR! See sample!](https://github.com/paukertj/cwe-swat/tree/main/shorts/2024-04-05_JPA_Aspire_Dashboard_Samples) Only thing what you have to do is to create empty Aspire project in your favorite IDE or using CLI:
 
 `dotnet new aspire-apphost --output Aspire.Dashboard`
 
