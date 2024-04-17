@@ -1,0 +1,15 @@
+If you ever played with [Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview) you probably encounter [Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard). Did you know that you can run it [standalone in docker](https://learn.microsoft.com/en-us/samples/dotnet/aspire-samples/aspire-standalone-dashboard/)? 
+
+And that is not the only thing! You can still run [Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard) standalone even without docker. [TL? DR! See sample!](https://github.com/paukertj/cwe-swat/tree/main/shorts/2024-04-05_JPA_Aspire_Dashboard_Samples) Only thing what you have to do is to create empty Aspire project in your favorite IDE or using CLI:
+
+`dotnet new aspire-apphost --output Aspire.Dashboard`
+
+If you can not see any Aspire template, just [make sure you have all tools in place](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/setup-tooling?tabs=visual-studio%2Cwindows#install-net-aspire).
+
+You can see the new project that contains literally two lines of code. This is the dashboard? If you see more projects there, you probably pick wrong template, use `aspire-apphost`. 
+
+Now it is the time to connect your project to newly created dashboard using [OTLP](https://opentelemetry.io/docs/specs/otlp/). I intentionally do not want to use [Aspire Orchestration](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/app-host-overview) because I want to use dashboard as the standalone project (like [it is in docker](https://learn.microsoft.com/en-us/samples/dotnet/aspire-samples/aspire-standalone-dashboard/) for instance). So, lets start with checking [OTLP](https://opentelemetry.io/docs/specs/otlp/) endpoint, if you used `aspire-apphost` template, then the endpoint is configured using [Environment Variables, that are in the expected place - `launchSettings.json`](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-8.0). The variable that represents [OTLP](https://opentelemetry.io/docs/specs/otlp/) endpoint is `DOTNET_DASHBOARD_OTLP_ENDPOINT_URL`. 
+
+Now, when I know my [OTLP](https://opentelemetry.io/docs/specs/otlp/) endpoint I can just add [OpenTelemetry](https://opentelemetry.io/) into [my project](https://github.com/paukertj/cwe-swat/tree/main/shorts/2024-04-05_JPA_Aspire_Dashboard_Samples) using [OpenTelemetry Nuget packages](https://www.nuget.org/profiles/OpenTelemetry), [compose them](https://github.com/paukertj/cwe-swat/blob/main/shorts/2024-04-05_JPA_Aspire_Dashboard_Samples/Program.cs) and that's it!
+
+> Found a bug or have additional questions? Let me know in the comments! I created this post on behalf of the CWE [**SWAT Workgroup**](https://wiki.ciklum.net/display/CGNA/SWAT+Workgroup). You can reach me and other group members at swat@ciklum.com.
